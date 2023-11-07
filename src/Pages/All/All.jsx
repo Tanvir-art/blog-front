@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
+import SingleBlog from '../../Components/SingleBlog/SingleBlog';
 
 const All = () => {
     const  {isPending, data} = useQuery({
@@ -15,7 +16,11 @@ const All = () => {
     console.log(data)
   return (
     <div>
-      <h2>Hello {data.length}</h2>
+      <div className='grid grid-cols-4 gap-6 mx-10 my-10'>
+      {
+        data.map(blog=> <SingleBlog key={blog._id} blog={blog}/>)
+      }
+      </div>
     </div>
   )
 }
