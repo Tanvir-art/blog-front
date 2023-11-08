@@ -10,6 +10,7 @@ import Add from "./Pages/Add/Add.jsx";
 import All from "./Pages/All/All.jsx";
 import Details from "./Pages/Details/Details.jsx";
 import Signup from "./Pages/Signup/Signup.jsx";
+import Login from "./Pages/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       }
     ],
   },

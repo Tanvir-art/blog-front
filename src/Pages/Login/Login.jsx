@@ -1,21 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Signup = () => {
-    const  handleSignUp = (e)=>{
+const Login = () => {
+    const  handleLogin = (e)=>{
         e.preventDefault();
         const form = e.target;
-        const name = form.nam.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        console.log(email, password)
     }
   return (
-    <div className='flex flex-col md:flex-row lg:flex-row justify-around items-center'>
-        <div className=' ml-10'>
-      <img className='w-full' src="/img/signup.jpg" alt="" />
-
-        </div>
+    <div className='flex flex-col md:flex-row lg:flex-row justify-around'>
+      <div>
+        <img src="/img/login.jpg" alt="" />
+      </div>
 
       <div className='mr-10'>
       <div className="hero min-h-screen ">
@@ -23,14 +21,9 @@ const Signup = () => {
 
 
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleSignUp} className="card-body">
+      <form onSubmit={handleLogin} className="card-body">
 
-      <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input type="text" name='nam' placeholder="Name" className="input input-bordered" />
-        </div>
+
 
         <div className="form-control">
           <label className="label">
@@ -51,7 +44,7 @@ const Signup = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       
-        <span>Already Signup? Go to <span className='text-blue-500'> <Link to='/login'>Login</Link> </span></span>
+        <span>Still Not SIgnup? Go to <span className='text-blue-500'> <Link to='/signup'>Signup</Link> </span></span>
         
       </form>
     </div>
@@ -62,4 +55,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Login
