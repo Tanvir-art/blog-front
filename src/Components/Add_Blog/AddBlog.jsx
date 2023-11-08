@@ -4,10 +4,6 @@ import React from 'react'
 const AddBlog = () => {
 
 
- 
-
-
-
   const handleSubmit =(e)=>{
     e.preventDefault();
     const form = e.target;
@@ -15,7 +11,7 @@ const AddBlog = () => {
     const imgUrl = form.imgUrl.value;
     const catagory = form.catagory.value;
     const short_desc = form.short_desc.value;
-    const long_desc = form.title.value;
+    const long_desc = form.long_desc.value;
     const dataAndTime = form.dataAndTime.value;
 
     const blog = {title, imgUrl, catagory, short_desc, long_desc, dataAndTime}

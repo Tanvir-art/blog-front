@@ -8,6 +8,7 @@ import Root from "./Components/Root/Root.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import Add from "./Pages/Add/Add.jsx";
 import All from "./Pages/All/All.jsx";
+import Details from "./Pages/Details/Details.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/all",
         element: <All />,
+      },
+      {
+        path: "/blog/:id",
+        element: <Details />,
+        loader: ()=> fetch('http://localhost:5000/blogs')
       },
     ],
   },

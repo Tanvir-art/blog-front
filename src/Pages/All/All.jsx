@@ -13,7 +13,6 @@ const All = () => {
     if(isPending){
         return <span className='loading loading-spinner text-primary'>Loading</span>
     }
-    console.log(data)
   return (
     <div>
       <div className='grid grid-cols-4 gap-6 mx-10 my-10'>

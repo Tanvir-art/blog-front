@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const SingleBlog = ({blog}) => {
-    const {title, imgUrl, catagory, short_desc} = blog
+    const {_id, title, imgUrl, catagory, short_desc} = blog;
+
   return (
     <div>
       <div className="card  bg-base-100 shadow-xl">
@@ -13,7 +15,10 @@ const SingleBlog = ({blog}) => {
     </h2>
     <p>{`${short_desc.slice(0, 100)}...`}</p>
     <div className="card-actions justify-between">
-      <button className="btn btn-outline">Details</button> 
+        <Link to={`/blog/${_id}`}>
+        
+      <button  className="btn btn-outline">Details</button> 
+        </Link>
       <button className="btn btn-outline">Wishlist</button>
     </div>
   </div>
