@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import SingleBlog from '../../Components/SingleBlog/SingleBlog';
 
 const All = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const { isPending, data } = useQuery({
     queryKey: ['blogs'],
     queryFn: async () => {
@@ -50,15 +51,29 @@ const All = () => {
 
         <div className="form-control mr-10">
   <label className="input-group">
-    <input type="text" placeholder="search by title...." className="input input-bordered" />
+    <input type="text" placeholder="search by title...." className="input input-bordered" onChange={(event)=> setSearchTerm(event.target.value)}/>
     <button className='bg-[#333] text-white px-3'>Search</button>
-  </label>
+  </label> 
 </div>
       </div>
       <div className='grid grid-cols-4 gap-6 mx-10 my-10'>
-        {categoryData.map(blog => (
+        {
+          categoryData.filter((val)=> {
+            if(searchTerm == ''){
+              return val;
+            }else if(val.title.toLowerCase().includes(searchTerm.toLowerCase())){
+              return val;
+            }
+            
+          })
+          .map(blog => (
+            <SingleBlog key={blog._id} blog={blog} />
+          ))
+        }
+        {/* {
+        categoryData.map(blog => (
           <SingleBlog key={blog._id} blog={blog} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
