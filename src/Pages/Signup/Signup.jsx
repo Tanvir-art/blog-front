@@ -1,8 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../Components/Provider/AuthProvider';
 
 const Signup = () => {
+    const [register, setRegister] = useState('');
+    const [success, setSuccesss] = useState('');
     const {createUSer} = useContext(AuthContext)
     const  handleSignUp = (e)=>{
         e.preventDefault();
@@ -10,12 +14,32 @@ const Signup = () => {
         const name = form.nam.value;
         const email = form.email.value;
         const password = form.password.value;
+
+
+        setRegister('')
+        setSuccesss('')
+    
+        if(password.length < 6){
+          toast('Password should be at last 6 character');
+          return;
+        }else if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[\w!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/.test(password)){
+          toast("In password give at least one capital letter & One special keyword");
+          return;
+        }
+
+
         createUSer(email, password)
         .then(result=> {
             const user = result.user;
             console.log(user)
+            toast('User Created Successfully')
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error)
+            setRegister(error.message)
+           
+            toast("email already use");
+        })
     }
   return (
     <div className='flex flex-col md:flex-row lg:flex-row justify-around items-center'>
@@ -61,6 +85,7 @@ const Signup = () => {
         <span>Already Signup? Go to <span className='text-blue-500'> <Link to='/login'>Login</Link> </span></span>
         
       </form>
+      <ToastContainer />
     </div>
   </div>
 </div>

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Components/Provider/AuthProvider';
 
 const Login = () => {
+  const location = useLocation();
   const {signIn, signWithGoogle} = useContext(AuthContext)
   const navigate = useNavigate();
       const  handleLogin = (e)=>{
@@ -16,7 +17,7 @@ const Login = () => {
           const user = result.user;
           console.log(user)
           e.target.reset();
-          navigate('/');
+          navigate(location?.state ? location.state : '/');
         })
         .catch(error=> console.log(error))
     }
@@ -25,10 +26,11 @@ const Login = () => {
       signWithGoogle()
       .then(res => {
         console.log(res.user)
-      
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error=> {
         console.log(error)
+        toast("Email or Password does not match")
       })
     }
   return (
