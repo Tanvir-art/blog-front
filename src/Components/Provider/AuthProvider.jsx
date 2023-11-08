@@ -31,10 +31,11 @@ const AuthProvider = ({children}) => {
   },[])
 
   const logOut = ()=>{
+    setLoading(true);
     return signOut(auth);
   }
 
-  const authInfo = {user, loading, createUSer, signIn, logOut}
+  const authInfo = {user, loading, createUSer, signIn, logOut, loading}
   return (
     <AuthContext.Provider value={authInfo}>
       {children}
