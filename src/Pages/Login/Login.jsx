@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Components/Provider/AuthProvider';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {signIn, signWithGoogle} = useContext(AuthContext)
+  const navigate = useNavigate();
       const  handleLogin = (e)=>{
         e.preventDefault();
         const form = e.target;
@@ -14,8 +15,21 @@ const Login = () => {
         .then(result=> {
           const user = result.user;
           console.log(user)
+          e.target.reset();
+          navigate('/');
         })
         .catch(error=> console.log(error))
+    }
+
+    const handleGoogleLogin= ()=>{
+      signWithGoogle()
+      .then(res => {
+        console.log(res.user)
+      
+      })
+      .catch(error=> {
+        console.log(error)
+      })
     }
   return (
     <div className='flex flex-col md:flex-row lg:flex-row justify-around'>
@@ -53,7 +67,7 @@ const Login = () => {
         </div>
       
         <span>Still Not SIgnup? Go to <span className='text-blue-500'> <Link to='/signup'>Signup</Link> </span></span>
-        
+          <button onClick={handleGoogleLogin} className='btn btn-primary'>Google</button>
       </form>
     </div>
   </div>
