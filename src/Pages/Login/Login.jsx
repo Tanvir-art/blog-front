@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/Provider/AuthProvider';
 
 const Login = () => {
-    const  handleLogin = (e)=>{
+  const {signIn} = useContext(AuthContext)
+      const  handleLogin = (e)=>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        signIn(email, password)
+        .then(result=> {
+          const user = result.user;
+          console.log(user)
+        })
+        .catch(error=> console.log(error))
     }
   return (
     <div className='flex flex-col md:flex-row lg:flex-row justify-around'>

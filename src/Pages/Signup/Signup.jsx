@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/Provider/AuthProvider';
 
 const Signup = () => {
     const {createUSer} = useContext(AuthContext)
@@ -14,7 +15,7 @@ const Signup = () => {
             const user = result.user;
             console.log(user)
         })
-        .then(error => console.log(error))
+        .catch(error => console.log(error))
     }
   return (
     <div className='flex flex-col md:flex-row lg:flex-row justify-around items-center'>
@@ -54,7 +55,7 @@ const Signup = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Sign uP</button>
         </div>
       
         <span>Already Signup? Go to <span className='text-blue-500'> <Link to='/login'>Login</Link> </span></span>
