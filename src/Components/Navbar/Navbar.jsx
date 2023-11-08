@@ -16,6 +16,7 @@ const Navbar = () => {
         <li><NavLink to='/all'>All Blog</NavLink></li>
         <li><NavLink to='/feature'>Feature Blog</NavLink></li>
         <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
+        <li><NavLink to='/signup'>Sign Up</NavLink></li>
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -27,6 +28,7 @@ const Navbar = () => {
         <li><NavLink to='/all'>All Blog</NavLink></li>
         <li><NavLink to='/feature'>Feature Blog</NavLink></li>
         <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
+        <li><NavLink to='/signup'>Sign Up</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end">

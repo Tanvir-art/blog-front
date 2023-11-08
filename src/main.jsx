@@ -9,6 +9,7 @@ import Home from "./Pages/Home/Home.jsx";
 import Add from "./Pages/Add/Add.jsx";
 import All from "./Pages/All/All.jsx";
 import Details from "./Pages/Details/Details.jsx";
+import Signup from "./Pages/Signup/Signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <Details />,
         loader: ()=> fetch('http://localhost:5000/blogs')
       },
+      {
+        path: "/signup",
+        element: <Signup />,
+      }
     ],
   },
 ]);
