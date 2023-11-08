@@ -11,6 +11,7 @@ import All from "./Pages/All/All.jsx";
 import Details from "./Pages/Details/Details.jsx";
 import Signup from "./Pages/Signup/Signup.jsx";
 import Login from "./Pages/Login/Login.jsx";
+import AuthProvider from "./Components/Provider/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,10 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+      <AuthProvider>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
+      </AuthProvider>
   </React.StrictMode>
 );

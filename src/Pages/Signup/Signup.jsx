@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
+    const {createUSer} = useContext(AuthContext)
     const  handleSignUp = (e)=>{
         e.preventDefault();
         const form = e.target;
         const name = form.nam.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        createUSer(email, password)
+        .then(result=> {
+            const user = result.user;
+            console.log(user)
+        })
+        .then(error => console.log(error))
     }
   return (
     <div className='flex flex-col md:flex-row lg:flex-row justify-around items-center'>
