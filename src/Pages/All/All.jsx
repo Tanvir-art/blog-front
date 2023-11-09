@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SingleBlog from '../../Components/SingleBlog/SingleBlog';
 
 const All = () => {
+
   const [searchTerm, setSearchTerm] = useState('');
   const { isPending, data } = useQuery({
     queryKey: ['blogs'],

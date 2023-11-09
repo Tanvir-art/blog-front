@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const SingleBlog = ({blog}) => {
-    const {_id, title, imgUrl, catagory, short_desc} = blog;
+  const {_id, title, imgUrl, catagory, short_desc, long_desc, dataAndTime} = blog;
+  const {user} = useContext(AuthContext);
+  const email = user?.email
+
+
+  const handleWishList =()=>{
+      fetch('http://localhost:5000/wishlist', {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json' 
+        },
+        body: JSON.stringify({title, imgUrl, catagory, short_desc, email, long_desc, dataAndTime})
+
+      })
+      .then(res=> res.json())
+      .then(data=> console.log(data))
+  }
 
   return (
     <div>
@@ -19,7 +36,7 @@ const SingleBlog = ({blog}) => {
         
       <button  className="btn btn-outline">Details</button> 
         </Link>
-      <button className="btn btn-outline">Wishlist</button>
+      <button onClick={handleWishList} className="btn btn-outline">Wishlist</button>
     </div>
   </div>
 </div>

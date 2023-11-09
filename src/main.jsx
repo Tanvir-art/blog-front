@@ -12,6 +12,9 @@ import Details from "./Pages/Details/Details.jsx";
 import Signup from "./Pages/Signup/Signup.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import AuthProvider from "./Components/Provider/AuthProvider.jsx";
+import Private from "./Components/Private/Private.jsx";
+import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
+import WishLsitDetails from "./Components/WishListDetails/WishLsitDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element: <Add />,
+        element: <Private><Add /></Private>,
       },
       {
         path: "/all",
@@ -36,12 +39,21 @@ const router = createBrowserRouter([
         loader: ()=> fetch('http://localhost:5000/blogs')
       },
       {
+        path: "/wishlist/:id",
+        element: <WishLsitDetails />,
+        loader: ()=> fetch('http://localhost:5000/wishlist')
+      },
+      {
         path: "/signup",
         element: <Signup />,
       },
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
       }
     ],
   },
