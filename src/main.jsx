@@ -15,6 +15,7 @@ import AuthProvider from "./Components/Provider/AuthProvider.jsx";
 import Private from "./Components/Private/Private.jsx";
 import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
 import WishLsitDetails from "./Components/WishListDetails/WishLsitDetails.jsx";
+import Feature from "./Pages/Feature/Feature.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/wishlist",
         element: <Wishlist />,
+      },
+      {
+        path: "/feature",
+        element: <Feature />,
       }
     ],
   },
