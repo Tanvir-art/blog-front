@@ -1,9 +1,12 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddBlog = () => {
 
-
+  const {user} = useContext(AuthContext);
+  const email = user.email;
+  console.log(email)
   const handleSubmit =(e)=>{
     e.preventDefault();
     const form = e.target;
@@ -14,7 +17,7 @@ const AddBlog = () => {
     const long_desc = form.long_desc.value;
     const dataAndTime = form.dataAndTime.value;
 
-    const blog = {title, imgUrl, catagory, short_desc, long_desc, dataAndTime}
+    const blog = {title, imgUrl, catagory, short_desc, long_desc, dataAndTime, email}
 
     fetch('http://localhost:5000/add', {
       method: "POST",

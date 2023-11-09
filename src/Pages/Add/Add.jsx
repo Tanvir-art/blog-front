@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AddBlog from '../../Components/Add_Blog/AddBlog'
 
 const Add = () => {
+
   return (
     <div>
       <AddBlog/>
