@@ -16,11 +16,14 @@ import Private from "./Components/Private/Private.jsx";
 import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
 import WishLsitDetails from "./Components/WishListDetails/WishLsitDetails.jsx";
 import Feature from "./Pages/Feature/Feature.jsx";
+import Update from "./Components/Update/Update.jsx";
+import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -36,12 +39,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog/:id",
-        element: <Details />,
+        element: <Private><Details /></Private>,
         loader: ()=> fetch('http://localhost:5000/blogs')
       },
       {
         path: "/wishlist/:id",
-        element: <WishLsitDetails />,
+        element: <Private> <WishLsitDetails /></Private>,
         loader: ()=> fetch('http://localhost:5000/wishlist')
       },
       {
@@ -59,7 +62,8 @@ const router = createBrowserRouter([
       {
         path: "/feature",
         element: <Private><Feature/></Private>,
-      }
+      },
+
     ],
   },
 ]);
