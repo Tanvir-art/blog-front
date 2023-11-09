@@ -19,12 +19,24 @@ const Navbar = () => {
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/add'>Add Blog</NavLink></li>
         <li><NavLink to='/all'>All Blog</NavLink></li>
+        {user? 
+        <>
+                <li><NavLink to='/add'>Add Blog</NavLink></li>
         <li><NavLink to='/feature'>Feature Blog</NavLink></li>
         <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
-        <li><NavLink to='/signup'>Sign Up</NavLink></li>
+        </>
+        : 
+        ""
+      
+      }
+        {user? "" : 
+        <>
+                <li><NavLink to='/signup'>Sign Up</NavLink></li>
         <li><NavLink to='/signup'>Login</NavLink></li>
+        </>
+        }
+
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -32,12 +44,24 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
     <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/add'>Add Blog</NavLink></li>
         <li><NavLink to='/all'>All Blog</NavLink></li>
+        {user? 
+        <>
+                <li><NavLink to='/add'>Add Blog</NavLink></li>
         <li><NavLink to='/feature'>Feature Blog</NavLink></li>
         <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
-        <li><NavLink to='/signup'>Sign Up</NavLink></li>
-        <li><NavLink to='/login'>Login</NavLink></li>
+        </>
+        : 
+        ""
+      
+      }
+        {user? "" : 
+        <>
+                <li><NavLink to='/signup'>Sign Up</NavLink></li>
+        <li><NavLink to='/signup'>Login</NavLink></li>
+        </>
+        }
+
     </ul>
   </div>
 

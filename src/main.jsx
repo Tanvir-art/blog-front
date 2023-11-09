@@ -54,11 +54,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/wishlist",
-        element: <Wishlist />,
+        element: <Private><Wishlist /></Private>,
       },
       {
         path: "/feature",
-        element: <Feature />,
+        element: <Private><Feature/></Private>,
       }
     ],
   },
