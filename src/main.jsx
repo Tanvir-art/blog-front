@@ -40,12 +40,12 @@ const router = createBrowserRouter([
       {
         path: "/blog/:id",
         element: <Private><Details /></Private>,
-        loader: ()=> fetch('http://localhost:5000/blogs')
+        loader: ()=> fetch('https://b8a11-server-side-tanvir-art.vercel.app/blogs')
       },
       {
         path: "/wishlist/:id",
         element: <Private> <WishLsitDetails /></Private>,
-        loader: ()=> fetch('http://localhost:5000/wishlist')
+        loader: ()=> fetch('https://b8a11-server-side-tanvir-art.vercel.app/wishlist')
       },
       {
         path: "/signup",

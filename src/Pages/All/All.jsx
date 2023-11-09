@@ -8,7 +8,7 @@ const All = () => {
   const { isPending, data } = useQuery({
     queryKey: ['blogs'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/blogs');
+      const res = await fetch('https://b8a11-server-side-tanvir-art.vercel.app/blogs');
       return res.json();
     },
   });

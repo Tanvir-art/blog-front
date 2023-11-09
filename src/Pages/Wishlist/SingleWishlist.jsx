@@ -6,7 +6,7 @@ const SingleWishlist = ({ iteam }) => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/wishlist/${_id}`, {
+    fetch(`https://b8a11-server-side-tanvir-art.vercel.app/wishlist/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

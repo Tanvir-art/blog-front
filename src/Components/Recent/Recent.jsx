@@ -6,7 +6,7 @@ const Recent = () => {
     const [recentData, setRecentData] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/recent-blogs')
+        fetch('https://b8a11-server-side-tanvir-art.vercel.app/recent-blogs')
         .then (res=> res.json())
         .then(data=> setRecentData(data))
     })

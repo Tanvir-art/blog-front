@@ -9,7 +9,7 @@ const NewsLetter = () => {
 
     const newsletter = {email}
 
-    fetch('http://localhost:5000/subscribe', {
+    fetch('https://b8a11-server-side-tanvir-art.vercel.app/subscribe', {
       method: "POST",
       headers: {
         'content-type': 'application/json' 

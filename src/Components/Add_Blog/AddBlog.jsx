@@ -19,7 +19,7 @@ const AddBlog = () => {
 
     const blog = {title, imgUrl, catagory, short_desc, long_desc, dataAndTime, email}
 
-    fetch('http://localhost:5000/add', {
+    fetch('https://b8a11-server-side-tanvir-art.vercel.app/add', {
       method: "POST",
       headers: {
         'content-type': 'application/json' 

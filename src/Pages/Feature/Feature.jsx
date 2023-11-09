@@ -22,7 +22,7 @@ const columns = [
 const Feature = () => {
     const [records, setRecords] = useState([]);
     useEffect(()=> {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://b8a11-server-side-tanvir-art.vercel.app/blogs')
         .then(res => res.json())
         .then(data=> {
             data.sort((a, b) => {

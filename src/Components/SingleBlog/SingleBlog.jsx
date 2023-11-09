@@ -9,7 +9,7 @@ const SingleBlog = ({blog}) => {
 
 
   const handleWishList =()=>{
-      fetch('http://localhost:5000/wishlist', {
+      fetch('https://b8a11-server-side-tanvir-art.vercel.app/wishlist', {
         method: "POST",
         headers: {
           'content-type': 'application/json' 

@@ -8,7 +8,7 @@ const Wishlist = () => {
   const { isPending, data } = useQuery({
     queryKey: ['wishlists'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/wishlist?email=${user.email}`);
+      const res = await fetch(`https://b8a11-server-side-tanvir-art.vercel.app/wishlist?email=${user.email}`);
       return res.json();
     },
   });

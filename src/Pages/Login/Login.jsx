@@ -19,7 +19,10 @@ const Login = () => {
           e.target.reset();
           navigate(location?.state ? location.state : '/');
         })
-        .catch(error=> console.log(error))
+        .catch(error=> {
+          console.log(error)
+          toast("Email or Password does not match")
+        })
     }
 
     const handleGoogleLogin= ()=>{
@@ -30,7 +33,7 @@ const Login = () => {
       })
       .catch(error=> {
         console.log(error)
-        toast("Email or Password does not match")
+        
       })
     }
   return (
