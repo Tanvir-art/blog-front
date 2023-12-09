@@ -14,6 +14,6 @@ A simple online blog project with the following features:
 4. **Delete from My Cart:**
    - Remove items from the shopping cart.
 
-Explore the live demo: [Blog Websute](https://blog-d83ea.web.app/)
+Explore the live demo: [Blog Website](https://assetmanaegment.web.app/)
 
 
